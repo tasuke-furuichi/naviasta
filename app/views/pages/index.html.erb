@@ -1,0 +1,23 @@
+<ul class="media-list">
+  
+  <table border="1", width="152%">
+    <tr>
+      <th>page_number</th>
+      <th>img</th>
+      <th>text</th>
+      <th>map's name</th>
+    </tr>
+    
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= link_to page.page_number, edit_page_path(page) %></td>
+        <td><%#= page.img %></td>
+        <td><%= page.text %></td>
+        <td><%= page.map.name %></td>
+      </tr>
+    <% end %>
+    
+  </table>
+ 
+  <%#= paginate pages %>
+</ul>

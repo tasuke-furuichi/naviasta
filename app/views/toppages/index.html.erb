@@ -1,12 +1,34 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ： <%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-md-4">
+      <%= form_for(@map) do |f| %>
+        <div class="form-group">
+          <%= f.label :name, 'Name' %>
+          <%= f.text_field :name, class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= f.label :status, 'Status' %>
+          <%= f.text_field :status, class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= f.label :language, 'Language' %>
+          <%= f.text_field :language, class: 'form-control'%>
+        </div>
+        
+        <%= f.submit 'create', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-xs-8">
+      <%= render 'maps/maps', maps: @maps %>
+    </div>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
-      <h1>welcome to the naviasta</h1>
-      <% link_to 'signup now', signup_path, class: 'btn btn-lg btn-primary' %>
+      <h1>welcome to naviasta</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
-  </div
+  </div>
 <% end %>
 
 

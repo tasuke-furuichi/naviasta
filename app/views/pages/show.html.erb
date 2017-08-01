@@ -1,0 +1,14 @@
+<table border="1", width="100%">
+  <tr>
+    <th>page_number</th>
+    <th>image</th>
+    <th>text</th>
+     <th>map's name</th>
+  </tr>
+  <tr>
+   <td><%= link_to @page.page_number, edit_page_path(@page) %></td>
+   <td><%= @page.image %></td>
+   <td><%= @page.text %></td>
+   <td><%= @page.map.name %></td>
+   </tr>
+</table>

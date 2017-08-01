@@ -1,0 +1,22 @@
+<div class='text-center'>
+  <h3>edit page</h3>
+</div>
+
+<div class="row">
+  <aside class="col-md-4">
+    <%= form_for(@page) do |f| %>
+     <div class="form-group">
+       <%= f.label :page_number, 'page_number' %>
+       <%= f.number_field :page_number, class: 'form-control'%>
+     </div>
+      <div class="form-group">
+        <%= f.label :img, 'Image' %>
+        <%= f.text_field :img, class: 'form-control'%>
+      </div>
+        <div class="form-group">
+         <%= f.text_area :text, class: 'form-control', rows: 5 %>
+        </div>
+       <%= f.submit 'create',class:'btn btn-block btn-primary'%>
+    <% end %>
+  </aside>
+</div>

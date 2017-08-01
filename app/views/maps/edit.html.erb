@@ -1,0 +1,26 @@
+<div class="text-center">
+  <h3><%= @map.name %>の編集ページ</h3>
+</div>
+<div class="row">
+  <aside class="col-md-4">
+     <%= form_for(@map) do |f| %>
+      <div class="form-group">
+        <%= f.label :name, 'Name' %>
+         <%= f.text_field :name, class: 'form-control'%>
+       </div>
+      <div class="form-group">
+         <%= f.label :status, 'Status' %>
+        <%= f.text_field :status, class: 'form-control'%>
+      </div>
+      <div class="form-group">
+        <%= f.label :language, 'Language' %>
+         <%= f.text_field :language, class: 'form-control'%>
+      </div>
+      
+      <%= f.submit 'update', class: 'btn btn-primary btn-block' %>
+     <% end %>
+  </aside>
+  
+</div>
+<%= link_to '一覧に戻る', maps_path, class:'btn btn-xs btn-primary'%>
+<%= link_to 'ページを作成する', new_map_pages_path(@map) , class:'btn btn-xs btn-success'%>
