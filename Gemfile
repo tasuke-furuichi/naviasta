@@ -56,3 +56,7 @@ gem 'kaminari'
 
 gem 'carrierwave'
 gem 'rmagick'
+
+group :production do
+  gem 'pg'
+end

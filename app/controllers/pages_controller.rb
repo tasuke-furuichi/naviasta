@@ -61,8 +61,8 @@ class PagesController < ApplicationController
   def correct_user
    user = Page.find(params[:id]).map.user
     if current_user != user
-    redirect_to root_url
-   end
+      redirect_to root_url
+    end
   end
   
   
