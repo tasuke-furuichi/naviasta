@@ -15,17 +15,17 @@
 　  <% else %>
 　　  <li><%= image_tag 'noimage.gif', class: 'img-responsive' %></li>
 　  <% end %>
-    <li><%= page.text %></li>
+    <li><%= simple_format(page.text) %></li>
     <% if page.content? %>
       <br></br>
       <br></br>
       <li class="text-muted text-center">Wifi password↓(copy here!)</li>
       <br></b>
-      <li class="bg-info text-center font-size: 120%;"><%= page.content %></li>
+      <li class="bg-info text-center"><%= page.content %></li>
     <% end %>
-    <br></br>
-    <br></br>
-    <br></br>
+    <% if logged_in? %>
+      <%= link_to 'このページを編集する', edit_page_path(page), class: 'btn btn-block btn-primary' %>
+    <% end %>
   <% end %>
 </ul>
 <% if logged_in? %>

@@ -53,10 +53,10 @@ class MapsController < ApplicationController
   end
   
   def correct_user
-    @map = current_user.maps.find_by(id: params[:id])
-    unless @map
-      redirect_to root_url
-    end
+    user = Map.find(params[:id]).user
+   if current_user != user
+    redirect_to root_url
+   end
   end
   
 end

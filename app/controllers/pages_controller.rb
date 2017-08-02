@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:edit, :destroy]
+
   
   def index
     @pages = Page.all.page(params[:page])
@@ -55,5 +57,13 @@ class PagesController < ApplicationController
   def page_params
     params.require(:page).permit(:page_number, :text, :image, :content)
   end
+  
+  def correct_user
+   user = Page.find(params[:id]).map.user
+    if current_user != user
+    redirect_to root_url
+   end
+  end
+  
   
 end
