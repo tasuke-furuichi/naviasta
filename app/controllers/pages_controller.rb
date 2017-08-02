@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     @page = @map.pages.build(page_params)
     if @page.save
       flash[:success] = 'ページを保存しました'
-      redirect_to 'pages/index'
+      redirect_to @map
     else
       #@pages = @map.pages.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'ページ作成に失敗しました'
