@@ -1,6 +1,6 @@
 class MapsController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:destroy, :edit, :update, :new, :create]
+  before_action :require_user_logged_in, only: [:destroy, :edit, :update, :new, :create, :index]
   before_action :correct_user, only: [:destroy, :edit]
   
   
@@ -19,6 +19,7 @@ class MapsController < ApplicationController
 
   def destroy
     @map = Map.find(params[:id])
+    @map.destroy
     flash[:success] = 'マップを削除しました'
     redirect_back(fallback_location: root_path)
   end

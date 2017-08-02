@@ -3,12 +3,20 @@
     <th>page_number</th>
     <th>image</th>
     <th>text</th>
-     <th>map's name</th>
+    <th>wifi password</th>
+    <th>map's name</th>
   </tr>
   <tr>
    <td><%= link_to @page.page_number, edit_page_path(@page) %></td>
+  
    <td><%= @page.image %></td>
    <td><%= @page.text %></td>
    <td><%= @page.map.name %></td>
+   <td><%= @page.content %></td>
    </tr>
 </table>
+
+<%= link_to 'ページ一覧に戻る', pages_path, class:'btn btn-xs btn-success'%>
+<% if logged_in? %>
+  <%= link_to "Delete", @page, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
+<% end %>

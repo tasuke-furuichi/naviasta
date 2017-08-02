@@ -1,4 +1,5 @@
 class Map < ApplicationRecord
+  #default_scope -> { order(page_number: :asc) }
   belongs_to :user
   has_many :pages
   validates :name, presence: true, length: { maximum: 50 }

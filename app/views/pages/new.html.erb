@@ -15,7 +15,11 @@
 　    　<%#= f.hidden_field :image_cache %>
       </div>
         <div class="form-group">
-         <%= f.text_area :text, class: 'form-control', rows: 5 %>
+          <%= f.text_area :text, class: 'form-control', rows: 5 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :content, 'Wifi password' %>
+          <%= f.text_field :content, class: 'form-control'%>
         </div>
        <%= f.submit 'create',class:'btn btn-block btn-primary'%>
     <% end %>

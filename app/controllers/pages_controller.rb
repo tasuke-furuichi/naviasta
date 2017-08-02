@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @page = @map.pages.build(page_params)
     if @page.save
       flash[:success] = 'ページを保存しました'
-      redirect_to 'maps/show'
+      redirect_to 'pages/index'
     else
       #@pages = @map.pages.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'ページ作成に失敗しました'
@@ -32,7 +32,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
 
-  def upadate
+  def update
     @page = Page.find(params[:id])
     if @page.update(page_params)
       flash[:success] = 'ページを編集しました'
@@ -45,6 +45,7 @@ class PagesController < ApplicationController
 
   def destroy
     @page = Page.find(params[:id])
+    @page.destroy
     flash[:success] = 'ページを削除しました'
     redirect_to pages_url
   end
@@ -52,7 +53,7 @@ class PagesController < ApplicationController
   private
   
   def page_params
-    params.require(:page).permit(:page_number, :text)
+    params.require(:page).permit(:page_number, :text, :image, :content)
   end
   
 end

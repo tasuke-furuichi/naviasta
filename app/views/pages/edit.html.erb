@@ -10,13 +10,23 @@
        <%= f.number_field :page_number, class: 'form-control'%>
      </div>
       <div class="form-group">
-        <%= f.label :img, 'Image' %>
-        <%= f.text_field :img, class: 'form-control'%>
+        <%= f.label :img %>
+　    　<%= f.file_field :image, class:'form-control' %>
+　    　<%#= f.hidden_field :image_cache %>
       </div>
         <div class="form-group">
-         <%= f.text_area :text, class: 'form-control', rows: 5 %>
+          <%= f.text_area :text, class: 'form-control', rows: 5 %>
         </div>
-       <%= f.submit 'create',class:'btn btn-block btn-primary'%>
+        <div class="form-group">
+          <%= f.label :content, 'Wifi password' %>
+          <%= f.text_field :content, class: 'form-control'%>
+        </div>
+        
+       <%= f.submit 'update',class:'btn btn-block btn-primary'%>
+    <% end %>
+    <% if logged_in? %>
+      <%= link_to "Delete", @page, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
     <% end %>
   </aside>
+  
 </div>

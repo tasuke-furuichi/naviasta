@@ -1,10 +1,11 @@
 <ul class="media-list">
   
-  <table border="1", width="152%">
+  <table border="1", width="100%">
     <tr>
       <th>page_number</th>
       <th>img</th>
       <th>text</th>
+      <th>wifi password</th>
       <th>map's name</th>
     </tr>
     
@@ -13,11 +14,12 @@
         <td><%= link_to page.page_number, edit_page_path(page) %></td>
         <td><%#= page.img %></td>
         <td><%= page.text %></td>
+        <td><%= page.content %></td>
         <td><%= page.map.name %></td>
       </tr>
     <% end %>
     
   </table>
- 
+  <%= link_to '案内一覧ページへ', maps_path, class:'btn btn-block btn-primary' %>
   <%#= paginate pages %>
 </ul>

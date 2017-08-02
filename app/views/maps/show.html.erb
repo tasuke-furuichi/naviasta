@@ -1,17 +1,36 @@
 <div class="text-center">
-  <h3>the way to <%= @map.name %></h3>
+  <h2>the way to <%= @map.name %></h2>
 </div>
 
-<ul>
+<br></br>
+<br></br>
+
+<ul style="list-style:none;">
   <% @pages.each do |page| %>
-    <li><%= page.page_number %>/<%= @pages.length %></li>
-    <li><%= page.image %></li>
+    <button type="button" class="btn btn-default font-weight:3">
+      <li><%= page.page_number %>/<%= @pages.length %></li>
+    </button>
+　　<% if page.image? %>
+　　  <li><%= image_tag page.image.url, class: 'img-responsive' %></li>
+　  <% else %>
+　　  <li><%= image_tag 'noimage.gif', class: 'img-responsive' %></li>
+　  <% end %>
     <li><%= page.text %></li>
+    <% if page.content? %>
+      <br></br>
+      <br></br>
+      <li class="text-muted text-center">Wifi password↓(copy here!)</li>
+      <br></b>
+      <li class="bg-info text-center font-size: 120%;"><%= page.content %></li>
+    <% end %>
+    <br></br>
+    <br></br>
+    <br></br>
   <% end %>
 </ul>
-
-<%= link_to 'このマップを編集する', edit_map_path(@map), class:'btn btn-block btn-primary'%>
-
+<% if logged_in? %>
+  <%= link_to 'このマップを編集する', edit_map_path(@map), class:'btn btn-block btn-primary' %>
+<% end %>
 <% if current_user == @map.user %>
   <%= link_to "Delete", @map, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
 <% end %>
