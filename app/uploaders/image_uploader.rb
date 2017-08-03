@@ -1,4 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
+  
+  include Cloudinary::CarrierWave
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -45,5 +47,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  version :standard do
+    process :resize_to_fill => [100, 150, :north]
+  end
+
+  version :thumbnail do
+    process :resize_to_fit => [50, 50]
+  end    
 
 end
