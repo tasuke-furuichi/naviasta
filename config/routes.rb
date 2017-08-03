@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   
   resources :pages, except: [:create, :new]
+  get 'mail_send', to: 'maps#mail_send'
 
 
 end

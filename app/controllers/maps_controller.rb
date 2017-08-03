@@ -48,6 +48,15 @@ class MapsController < ApplicationController
     @pages = @map.pages
   end
   
+  
+  def mail_send
+    @mail = NoticeMailer.sendmail_confirm.deliver
+    render :text => 'send finish'
+  end
+  
+  
+  private
+  
   def map_params
     params.require(:map).permit(:name, :status, :language, :map_url)
   end

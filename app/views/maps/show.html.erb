@@ -21,8 +21,11 @@
       <br></br>
       <br></br>
       <li class="text-muted text-center">Wifi password↓(copy here!)</li>
-      <br></b>
+      <br></br>
       <li class="bg-info text-center"><%= page.content %></li>
+      <br></br>
+      <br></br>
+      <%= link_to 'PUSH! : Tell Host your Arrival', mail_send_path, class: 'btn btn-block btn-success' %>
     <% end %>
     <% if logged_in? %>
       <%= link_to 'このページを編集する', edit_page_path(page), class: 'btn btn-block btn-primary' %>
