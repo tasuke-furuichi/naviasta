@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -61,8 +61,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :file
   end
   
+
+ 
   def public_id
-    model.id
+    return model.id
   end
 
 end
