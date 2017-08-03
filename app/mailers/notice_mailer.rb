@@ -8,6 +8,6 @@ class NoticeMailer < ApplicationMailer
   def sendmail_confirm(user)
     @greeting = "I've arrived!"
 
-    mail to: "tasuke0821@gmail.com", subject: "Notification from naviasta"
+    mail to: user.email, subject: "Notification from naviasta"
   end
 end

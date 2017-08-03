@@ -25,7 +25,11 @@
       <li class="bg-info text-center"><%= page.content %></li>
       <br></br>
       <br></br>
-      <%= link_to 'PUSH! : Tell Host your Arrival', mail_send_path, class: 'btn btn-block btn-success' %>
+      
+      <%= form_tag(mail_send_path) do %>
+        <%= hidden_field_tag :user_id, @map.user.id %>
+        <%= submit_tag 'PUSH! : Tell Host your Arrival', class: 'btn btn-success btn-sm' %>
+      <% end %>
     <% end %>
     <% if logged_in? %>
       <%= link_to 'このページを編集する', edit_page_path(page), class: 'btn btn-block btn-primary' %>
@@ -41,3 +45,4 @@
 <br></br>
 <br></br>
 <br></br>
+

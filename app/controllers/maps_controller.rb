@@ -50,8 +50,8 @@ class MapsController < ApplicationController
   
   
   def mail_send
-    user = Map.find(params[:id]).user
-    @mail = NoticeMailer.sendmail_confirm.deliver
+    user = User.find(params[:user_id])
+    @mail = NoticeMailer.sendmail_confirm(user).deliver
     render :text => 'send finish'
     
   end
