@@ -35,11 +35,10 @@ class PagesController < ApplicationController
   end
 
   def update
-    @map = Map.find(params[:map_id])
     @page = Page.find(params[:id])
     if @page.update(page_params)
       flash[:success] = 'ページを編集しました'
-      redirect_to @map
+      redirect_to @page
     else
       flash.now[:danger] = 'ページを編集できませんでした'
       render :edit
