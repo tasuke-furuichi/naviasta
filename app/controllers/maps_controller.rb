@@ -9,11 +9,11 @@ class MapsController < ApplicationController
     @map = current_user.maps.build(map_params)
     if @map.save
       flash[:success] = 'マップを作成しました'
-      redirect_to 'maps/edit'
+      redirect_to @map
     else
       @maps = current_user.maps.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'マップ作成に失敗しました'
-      render 'toppages/index'
+      render root_url
     end
   end
 
