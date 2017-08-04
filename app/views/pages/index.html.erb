@@ -9,6 +9,7 @@
       <th>map's name</th>
     </tr>
     
+  <%# if current_user.maps? %>
     <% @pages.each do |page| %>
       <tr>
         <td><%= link_to page.page_number, edit_page_path(page) %></td>
@@ -18,6 +19,8 @@
         <td><%= page.map.name %></td>
       </tr>
     <% end %>
+  <%# end %>
+
     
   </table>
   <%= link_to '案内一覧ページへ', maps_path, class:'btn btn-block btn-primary' %>

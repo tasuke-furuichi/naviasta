@@ -9,7 +9,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  
+  def correct_user
+    @user = current_user.find_by(id: params[:id])
+    unless @user
+      redirect_to root_url
+    end
+  end
   
   
 end

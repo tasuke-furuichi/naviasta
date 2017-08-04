@@ -8,6 +8,6 @@ class NoticeMailer < ApplicationMailer
   def sendmail_confirm(user)
     @greeting = "I've arrived!"
 
-    mail to: user.email, subject: "Notification from naviasta"
+    mail to: user.email, subject: "駅から案内：ゲストが到着したようです"
   end
 end

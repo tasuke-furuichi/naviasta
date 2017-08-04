@@ -40,7 +40,7 @@
   <%= link_to 'このマップを編集する', edit_map_path(@map), class:'btn btn-block btn-primary' %>
 <% end %>
 <% if current_user == @map.user %>
-  <%= link_to "Delete", @map, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
+  <%= link_to "Delete", @map, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
 <% end %>
 <br></br>
 <br></br>

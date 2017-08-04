@@ -3,4 +3,10 @@
   <% if @user.maps.any? %>
     <%= render 'maps/maps', maps: @user.maps %>
   <% end %>
+  
+  
+  <% if current_user == @user %>
+    <%= link_to 'アカウント情報を編集する', edit_user_path(@user), class: 'btn btn-sm btn-success' %>
+    <%= link_to "退会する", @user, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
+  <% end %>
 </div>

@@ -5,4 +5,9 @@ class Page < ApplicationRecord
   validates :map_id, presence: true
   mount_uploader :image, ImageUploader
   validates :content, length: { maximum: 50 }
+  
+  
+  #def current_user_has_page?
+  
+  #end
 end
