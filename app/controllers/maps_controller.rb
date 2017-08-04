@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   
   before_action :require_user_logged_in, only: [:destroy, :edit, :update, :new, :create, :index]
-  before_action :correct_user, only: [:destroy, :edit]
+  before_action :correct_user, only: [:destroy, :edit, :index]
   
   
 
