@@ -13,13 +13,14 @@ class PagesController < ApplicationController
   end
 
   def new
-    @map = Map.find(params[:map_id])
+    @map = Map.friendly.find(params[:map_id])
     @page = Page.new
   end
 
   def create
-    @map = Map.find(params[:map_id])
+    @map = Map.friendly.find_by(id: params[:map_id])
     @page = @map.pages.build(page_params)
+    
     if @page.save
       flash[:success] = 'ページを保存しました'
       redirect_to @map

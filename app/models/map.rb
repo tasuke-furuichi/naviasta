@@ -1,5 +1,8 @@
 class Map < ApplicationRecord
   #default_scope -> { order(page_number: :asc) }
+  include FriendlyId
+  friendly_id :name
+  
   belongs_to :user
   has_many :pages, :dependent => :destroy
   validates :name, presence: true, length: { maximum: 50 }

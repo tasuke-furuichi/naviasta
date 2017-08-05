@@ -62,3 +62,4 @@ group :production do
 end
 
 gem 'cloudinary'
+gem 'friendly_id'
