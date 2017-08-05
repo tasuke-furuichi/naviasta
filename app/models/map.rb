@@ -1,7 +1,7 @@
 class Map < ApplicationRecord
   #default_scope -> { order(page_number: :asc) }
   include FriendlyId
-  friendly_id :name
+  friendly_id :name, use: :slugged
   
   belongs_to :user
   has_many :pages, :dependent => :destroy

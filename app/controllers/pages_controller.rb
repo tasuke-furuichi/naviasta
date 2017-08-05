@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    @map = Map.friendly.find_by(id: params[:map_id])
+    @map = Map.friendly.find(params[:map_id])
     @page = @map.pages.build(page_params)
     
     if @page.save

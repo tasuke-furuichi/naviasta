@@ -63,7 +63,7 @@ class MapsController < ApplicationController
   private
   
   def map_params
-    params.require(:map).permit(:name, :status, :language, :map_url)
+    params.require(:map).permit(:name, :status, :language, :map_url, :slug)
   end
   
   def correct_user

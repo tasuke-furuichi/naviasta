@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805081448) do
+ActiveRecord::Schema.define(version: 20170805092416) do
 
   create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "slug",                      null: false
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170805081448) do
     t.string   "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_maps_on_slug", using: :btree
     t.index ["user_id"], name: "index_maps_on_user_id", using: :btree
   end
 
